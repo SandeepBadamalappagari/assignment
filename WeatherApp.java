@@ -1,6 +1,5 @@
 package Task;
 
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -128,7 +127,7 @@ public class WeatherApp {
                 return Double.parseDouble(tempValue);
             }
         }
-        return 0;
+        return -1.0;
     }
 
     private static double extractWindSpeed(String jsonResponse) {
@@ -138,11 +137,10 @@ public class WeatherApp {
             int endIndex = jsonResponse.indexOf(",", index);
             if (endIndex != -1) {
                 String speedValue = jsonResponse.substring(index + 8, endIndex);
-               return Double.parseDouble(speedValue);
+                return Double.parseDouble(speedValue);
             }
         }
-       return 0;
-    }
+        return -1.0;
     }
 
     private static double extractPressure(String jsonResponse) {
@@ -155,8 +153,6 @@ public class WeatherApp {
                 return Double.parseDouble(pressureValue);
             }
         }
-        return 0;
-
+        return -1.0;
     }
 }
-
